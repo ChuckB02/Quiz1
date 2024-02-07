@@ -1,6 +1,6 @@
 import tkinter as tk
-import sqlite3
 import logging
+from questions import get_question
 
 logging.basicConfig(
     filename= "logs/basic.log",
@@ -42,10 +42,10 @@ class App:
         self.doYouWantToPlay = tk.Label(self.frameQuestion, text= "Do you want to play?", bg= "#FFECB3", font= ('verdanda', 25))
         self.doYouWantToPlay.place(relx= 0.1, rely= 0.05, relwidth= 0.8, relheight= 0.9)
 
-        self.letsGo = tk.Button(self.frameButtons, text= "Let's go", command= self.question)
+        self.letsGo = tk.Button(self.frameButtons, text= "Let's go", command= self.startQuestion)
         self.letsGo.place(relx= 0.4, rely= 0.35, relwidth= 0.2, relheight= 0.3)
 
-    def question(self):
+    def startQuestion(self):
         self.frameHeader.destroy()
         self.frameQuestion.destroy()
         self.frameButtons.destroy()
