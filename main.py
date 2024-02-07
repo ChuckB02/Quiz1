@@ -36,7 +36,8 @@ class App:
         self.letsGo = tk.Button(self.frameButtons, text= "Let's go")
         self.letsGo.place(relx= 0.4, rely= 0.35, relwidth= 0.2, relheight= 0.3)
 
-
+    def question(self):
+        pass
 
 
 
