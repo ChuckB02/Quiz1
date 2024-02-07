@@ -7,6 +7,7 @@ class App:
         self.root = tk.Tk()
         self.screen()
         self.frames()
+        self.start()
         self.root.mainloop()
 
     def screen(self):
@@ -25,7 +26,15 @@ class App:
         self.frameButtons = tk.Frame(self.root, bg= "#FFECB3")
         self.frameButtons.place(relx= 0.03, rely= 0.66, relwidth= 0.94, relheight= 0.31)
         
+    def start(self):
+        self.welcome = tk.Label(self.frameHeader, text= "Welcome to my Quiz Game", bg= "#FFECB3", font= ('verdanda', 30))
+        self.welcome.place(relx= 0.1, rely= 0.05, relwidth= 0.8, relheight= 0.9)
 
+        self.doYouWantToPlay = tk.Label(self.frameQuestion, text= "Do you want to play?", bg= "#FFECB3", font= ('verdanda', 25))
+        self.doYouWantToPlay.place(relx= 0.1, rely= 0.05, relwidth= 0.8, relheight= 0.9)
+
+        self.letsGo = tk.Button(self.frameButtons, text= "Let's go")
+        self.letsGo.place(relx= 0.4, rely= 0.35, relwidth= 0.2, relheight= 0.3)
 
 
 
