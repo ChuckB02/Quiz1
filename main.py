@@ -42,11 +42,18 @@ class App:
         self.doYouWantToPlay = tk.Label(self.frameQuestion, text= "Do you want to play?", bg= "#FFECB3", font= ('verdanda', 25))
         self.doYouWantToPlay.place(relx= 0.1, rely= 0.05, relwidth= 0.8, relheight= 0.9)
 
-        self.letsGo = tk.Button(self.frameButtons, text= "Let's go")
+        self.letsGo = tk.Button(self.frameButtons, text= "Let's go", command= self.question)
         self.letsGo.place(relx= 0.4, rely= 0.35, relwidth= 0.2, relheight= 0.3)
 
     def question(self):
-        pass
+        self.frameHeader.destroy()
+        self.frameQuestion.destroy()
+        self.frameButtons.destroy()
+        self.frames()
+
+        self.header = tk.Label(self.frameHeader, text= "Can you answer?", bg= "#FFECB3", font= ('verdanda', 30))
+        self.header.place(relx= 0.1, rely= 0.05, relwidth= 0.8, relheight= 0.9)
+
 
 
 
