@@ -2,13 +2,22 @@ import tkinter as tk
 import sqlite3
 import logging
 
+logging.basicConfig(
+    filename= "logs/basic.log",
+    level = logging.DEBUG,
+    format = "%(asctime)s %(levelname)s %(message)s",
+    datefmt = "%Y-%m-%d %H:%M:%S",
+)
+
 class App:
     def __init__(self):
+        logging.info("Program started")
         self.root = tk.Tk()
         self.screen()
         self.frames()
         self.start()
         self.root.mainloop()
+        logging.info("Program ended")
 
     def screen(self):
         self.root.title("Quiz Game")
