@@ -77,7 +77,7 @@ class App:
             self.labelQuestion.config(text= "Correct", fg= "#67FF32")
             time.sleep(1)
         else:
-            self.labelQuestion.configure(text= "Wrong", fg= "#FF4040")
+            self.labelQuestion.config(text= "Wrong", fg= "#FF4040")
             time.sleep(1)
 
         if questions.list_of_questions:
@@ -86,7 +86,12 @@ class App:
             self.endWindow()
     
     def endWindow(self):
-        quit()
+        self.frameHeader.destroy()
+        self.frameQuestion.destroy()
+        self.frameButtons.destroy()
+
+        self.thanks = tk.Label(self.root, text= "Thanks for playing", font= ('verdanda', 30), bg= "#FFF0C2")
+        self.thanks.place(relx= 0.2, rely= 0.4, relwidth= 0.6, relheight= 0.2)
 
 
 
