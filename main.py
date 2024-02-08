@@ -1,6 +1,7 @@
 import tkinter as tk
 import logging
-from questions import get_question
+import time
+import questions
 
 logging.basicConfig(
     filename= "logs/basic.log",
@@ -54,9 +55,39 @@ class App:
         self.header = tk.Label(self.frameHeader, text= "Can you answer?", bg= "#FFECB3", font= ('verdanda', 30))
         self.header.place(relx= 0.1, rely= 0.05, relwidth= 0.8, relheight= 0.9)
 
+        self.question = questions.get_question()
+
+        self.labelQuestion = tk.Label(self.frameQuestion, text= self.question.title, bg= "#FFECB3", font= ('verdanda', 25), wraplength= 600)
+        self.labelQuestion.place(relx= 0.1, rely= 0.05, relwidth= 0.8, relheight= 0.9)
+        
+        self.answer1 = tk.Button(self.frameButtons, text= self.question.answers[0], command= lambda: self.checkAnswer(0))
+        self.answer1.place(relx= 0.04, rely= 0.35, relwidth= 0.2, relheight= 0.3)
+
+        self.answer2 = tk.Button(self.frameButtons, text= self.question.answers[1], command= lambda: self.checkAnswer(1))
+        self.answer2.place(relx= 0.28, rely= 0.35, relwidth= 0.2, relheight= 0.3)
+
+        self.answer3 = tk.Button(self.frameButtons, text= self.question.answers[2], command= lambda: self.checkAnswer(2))
+        self.answer3.place(relx= 0.52, rely= 0.35, relwidth= 0.2, relheight= 0.3)
+
+        self.answer4 = tk.Button(self.frameButtons, text= self.question.answers[3], command= lambda: self.checkAnswer(3))
+        self.answer4.place(relx= 0.76, rely= 0.35, relwidth= 0.2, relheight= 0.3)
 
 
+    def checkAnswer(self, index: int):
+        if self.question.check(index):
+            self.labelQuestion.config(text= "Correct", fg= "#67FF32")
+            time.sleep(1)
+        else:
+            self.labelQuestion.configure(text= "Wrong", fg= "#FF4040")
+            time.sleep(1)
 
+        if questions.list_of_questions:
+            self.startQuestion()
+        else:
+            self.endWindow()
+    
+    def endWindow(self):
+        quit()
 
 
 

@@ -19,7 +19,7 @@ class question:
     
 
 q1 = question(
-    title = "What's the height of the Everest Mountain",
+    title = "What's the height of the Everest Mountain?",
     answers = [
         "8848.86 m",
         "8912.43 m",
@@ -30,7 +30,7 @@ q1 = question(
 )
 
 q2 = question(
-    title = "How many countries are located in Europe",
+    title = "How many countries are located in Europe?",
     answers = [
         "40",
         "32",
@@ -42,7 +42,14 @@ q2 = question(
 
 
 list_of_questions = [q1, q2]
-n = len(list_of_questions)
 
 def get_question():
-    return list_of_questions[randint(0, n-1)]
+    n = len(list_of_questions)
+    if list_of_questions:
+        ques = list_of_questions[randint(0, n-1)]
+        list_of_questions.remove(ques)
+        return ques
+    else:
+        raise IndexError
+
+
