@@ -72,7 +72,6 @@ class App:
         self.answer4 = tk.Button(self.frameButtons, text= self.question.answers[3], command= lambda: self.checkAnswer(3))
         self.answer4.place(relx= 0.76, rely= 0.35, relwidth= 0.2, relheight= 0.3)
 
-
     def checkAnswer(self, index: int):
         if self.question.check(index):
             self.labelQuestion.config(text= "Correct", fg= "#67FF32")
